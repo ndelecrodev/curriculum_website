@@ -67,6 +67,7 @@ Site publicado em **<https://ndelecrodev.github.io/curriculum_website/>**.
 | Recurso | Onde |
 |---|---|
 | **Tema escuro e claro** com botão de alternância. A escolha fica salva no navegador e é aplicada antes da primeira pintura, sem piscar | `index.html`, `script.js` |
+| **Idioma PT/EN** com botão na barra de navegação. A escolha fica salva no navegador e também vale `?lang=en` ou `?lang=pt` na URL | `i18n.js`, `script.js` |
 | **Filtro de projetos** por categoria, com botões que informam o estado (`aria-pressed`) | `script.js` |
 | **Botão "Copiar E-mail"** com aviso na tela e plano B para navegadores que bloqueiam a área de transferência | `script.js` |
 | **Botão "Baixar CV"** que abre a impressão, e o CSS de impressão monta o currículo em papel ou PDF | `script.js`, `style.css` |
@@ -119,6 +120,7 @@ Depois abra <http://localhost:8000> (ou o endereço que o servidor mostrar). Com
 ├── apple-touch-icon.png  Ícone para iOS
 ├── style.css         Visual: temas, layout responsivo e impressão
 ├── script.js         Comportamento: tema, menu, filtro, copiar e-mail
+├── i18n.js           Textos em português e inglês
 ├── assets/
 │   └── icons/        Ícones SVG das tecnologias
 └── README.md

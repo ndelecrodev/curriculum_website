@@ -10,6 +10,72 @@
     try { localStorage.setItem(chave, valor); } catch (e) { }
   }
 
+  var dicionarios = window.I18N || {};
+  var idiomaAtual = "pt";
+  var metaDescricao = document.querySelector('meta[name="description"]');
+  var botoesIdioma = document.querySelectorAll("[data-lang]");
+
+  function t(chave, vars) {
+    var dic = dicionarios[idiomaAtual] || {};
+    var texto = dic[chave];
+    if (texto === undefined) texto = (dicionarios.pt || {})[chave];
+    if (texto === undefined) return chave;
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        texto = texto.split("{" + k + "}").join(vars[k]);
+      });
+    }
+    return texto;
+  }
+
+  function idiomaValido(valor) {
+    return valor === "pt" || valor === "en" ? valor : null;
+  }
+
+  function idiomaInicial() {
+    var daUrl = null;
+    try { daUrl = idiomaValido(new URLSearchParams(window.location.search).get("lang")); } catch (e) { }
+    if (daUrl) return daUrl;
+    var salvo = idiomaValido(lerArmazenado("lang"));
+    if (salvo) return salvo;
+    var nav = (navigator.language || "").toLowerCase();
+    return nav.indexOf("en") === 0 ? "en" : "pt";
+  }
+
+  function rotuloMenu() {
+    if (!burger) return;
+    burger.setAttribute("aria-label", t(burger.getAttribute("aria-expanded") === "true" ? "menu.close" : "menu.open"));
+  }
+
+  function aplicarIdioma(lang, gravar) {
+    if (!idiomaValido(lang) || !dicionarios[lang]) lang = "pt";
+    idiomaAtual = lang;
+    root.setAttribute("lang", lang === "en" ? "en" : "pt-BR");
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      el.textContent = t(el.getAttribute("data-i18n"));
+    });
+    document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
+      el.getAttribute("data-i18n-attr").split(",").forEach(function (par) {
+        var i = par.indexOf(":");
+        if (i > 0) el.setAttribute(par.slice(0, i).trim(), t(par.slice(i + 1).trim()));
+      });
+    });
+
+    document.title = t("meta.title");
+    if (metaDescricao) metaDescricao.setAttribute("content", t("meta.description"));
+    rotuloMenu();
+
+    botoesIdioma.forEach(function (b) {
+      var ativo = b.getAttribute("data-lang") === lang;
+      b.classList.toggle("is-active", ativo);
+      b.setAttribute("aria-pressed", String(ativo));
+    });
+
+    if (gravar) gravarArmazenado("lang", lang);
+  }
+
+  var burger = document.getElementById("burger");
   var toast = document.getElementById("toast");
   var toastTimer;
   function mostrarToast(mensagem) {
@@ -32,19 +98,18 @@
     });
   }
 
-  var burger = document.getElementById("burger");
   var menu = document.getElementById("menu");
   function fecharMenu() {
     if (!burger || !menu) return;
     menu.classList.remove("open");
     burger.setAttribute("aria-expanded", "false");
-    burger.setAttribute("aria-label", "Abrir menu");
+    rotuloMenu();
   }
   if (burger && menu) {
     burger.addEventListener("click", function () {
       var aberto = menu.classList.toggle("open");
       burger.setAttribute("aria-expanded", String(aberto));
-      burger.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+      rotuloMenu();
     });
     menu.addEventListener("click", function (e) {
       if (e.target.closest("a")) fecharMenu();
@@ -120,8 +185,8 @@
     botaoEmail.addEventListener("click", function () {
       var email = botaoEmail.getAttribute("data-email");
 
-      function sucesso() { mostrarToast("E-mail copiado!"); }
-      function falha() { mostrarToast("Não foi possível copiar. E-mail: " + email); }
+      function sucesso() { mostrarToast(t("toast.copied")); }
+      function falha() { mostrarToast(t("toast.fail", { email: email })); }
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(sucesso, function () {
@@ -139,7 +204,7 @@
       try {
         window.print();
       } catch (e) {
-        mostrarToast("Use Ctrl+P (ou Cmd+P) e escolha Salvar como PDF.");
+        mostrarToast(t("toast.print"));
       }
     });
   }
@@ -161,6 +226,14 @@
     }, { rootMargin: "-45% 0px -50% 0px" });
     secoes.forEach(function (s) { obsSecao.observe(s.alvo); });
   }
+
+  botoesIdioma.forEach(function (botao) {
+    botao.addEventListener("click", function () {
+      aplicarIdioma(botao.getAttribute("data-lang"), true);
+    });
+  });
+
+  aplicarIdioma(idiomaInicial(), false);
 
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();

@@ -78,6 +78,11 @@ html:not([data-mode="light"]) img.inv { filter: brightness(0) invert(0.9); }
 .nav-actions { display: flex; align-items: center; gap: 6px; }
 .icon-btn { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border-strong); background: transparent; color: var(--text); cursor: pointer; transition: border-color 0.15s; }
 .icon-btn:hover { border-color: var(--muted); }
+.lang { display: flex; align-items: center; gap: 2px; height: 36px; padding: 0 4px; border-radius: 8px; border: 1px solid var(--border-strong); font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; }
+.lang-btn { border: 0; background: transparent; color: var(--muted); font: inherit; padding: 6px 7px; border-radius: 5px; cursor: pointer; transition: color 0.15s; }
+.lang-btn:hover { color: var(--text); }
+.lang-btn.is-active { color: var(--accent); font-weight: 500; }
+.lang-sep { color: var(--border-strong); }
 .i-moon { display: none; }
 html[data-mode="light"] .i-sun { display: none; }
 html[data-mode="light"] .i-moon { display: block; }
@@ -202,6 +207,11 @@ html[data-mode="light"] .i-moon { display: block; }
   .section-grid { --col-label: 150px; gap: 24px 28px; }
   .proj { grid-template-columns: 1fr 170px 84px; gap: 12px 20px; }
 }
+@media (min-width: 761px) and (max-width: 900px) {
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 8px 7px; font-size: 13.5px; }
+  .brand-name { font-size: 14px; }
+}
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .facts { max-width: 560px; }
@@ -220,6 +230,7 @@ html[data-mode="light"] .i-moon { display: block; }
     max-height: calc(100vh - var(--nav-h)); max-height: calc(100dvh - var(--nav-h)); overflow-y: auto;
   }
   .icon-btn { width: 40px; height: 40px; }
+  .lang { height: 40px; }
   .chip { padding: 8px 14px; }
   .contact { padding: 26px; }
   .nav-links.open { opacity: 1; transform: none; visibility: visible; }
