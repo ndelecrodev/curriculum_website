@@ -75,7 +75,9 @@ window.I18N = {
     "menu.close": "Fechar menu",
     "lang.group": "Idioma",
     "meta.title": "Nicolas Zampieri",
-    "meta.description": "Nicolas Delecrode Zampieri, desenvolvedor backend. Python, FastAPI, Django, Java e Spring Boot. APIs e integrações entre sistemas."
+    "meta.description": "Nicolas Delecrode Zampieri, desenvolvedor backend. Python, FastAPI, Django, Java e Spring Boot. APIs e integrações entre sistemas.",
+    "hero.pdf": "Baixar currículo (PDF)",
+    "aria.pdf": "Baixar o currículo de Nicolas Zampieri em PDF, em português"
   },
   en: {
     "skip": "Skip to content",
@@ -153,6 +155,8 @@ window.I18N = {
     "menu.close": "Close menu",
     "lang.group": "Language",
     "meta.title": "Nicolas Zampieri",
-    "meta.description": "Nicolas Delecrode Zampieri, backend developer. Python, FastAPI, Django, Java and Spring Boot. APIs and system integrations."
+    "meta.description": "Nicolas Delecrode Zampieri, backend developer. Python, FastAPI, Django, Java and Spring Boot. APIs and system integrations.",
+    "hero.pdf": "Download résumé (PDF, PT)",
+    "aria.pdf": "Download Nicolas Zampieri's résumé as a PDF, in Portuguese"
   }
 };

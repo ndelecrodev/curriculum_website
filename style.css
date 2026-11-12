@@ -102,6 +102,7 @@ html[data-mode="light"] .i-moon { display: block; }
 .btn.primary:hover { filter: brightness(1.12); }
 .btn.ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
 .btn.ghost:hover { border-color: var(--muted); }
+.btn-icon { gap: 8px; }
 
 .hero { position: relative; overflow: hidden; padding: calc(var(--nav-h) + 88px) 0 80px; }
 .hero::before {
