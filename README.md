@@ -115,6 +115,8 @@ Depois abra <http://localhost:8000> (ou o endereço que o servidor mostrar). Com
 ```
 .
 ├── index.html        Estrutura e conteúdo da página
+├── favicon.svg       Ícone da aba do navegador
+├── apple-touch-icon.png  Ícone para iOS
 ├── style.css         Visual: temas, layout responsivo e impressão
 ├── script.js         Comportamento: tema, menu, filtro, copiar e-mail
 ├── assets/
