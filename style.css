@@ -200,6 +200,27 @@ html[data-mode="light"] .i-moon { display: block; }
 .toast { position: fixed; left: 50%; bottom: 28px; z-index: 80; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+.case-link { display: inline-block; margin-top: 10px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.case-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.case { padding: calc(var(--nav-h) + 48px) 0 72px; }
+.case-wrap { max-width: 820px; }
+.case-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; color: var(--muted); text-decoration: none; font-size: 14.5px; transition: color 0.15s; }
+.case-back:hover { color: var(--text); }
+.case-head .eyebrow { margin-bottom: 14px; }
+.case h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.12; }
+.case-head .lead { margin-top: 18px; max-width: 60ch; color: var(--muted); }
+.case-block { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border); }
+.case-block h2 { margin-bottom: 14px; font-size: 14px; font-weight: 500; color: var(--muted); }
+.case-block p { max-width: 68ch; color: var(--text); font-size: 16.5px; }
+.case-list { display: grid; gap: 12px; max-width: 68ch; }
+.case-list li { position: relative; padding-left: 16px; color: var(--muted); font-size: 16px; }
+.case-list li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 6px; height: 1px; background: var(--muted); }
+.case-list strong { color: var(--text); font-weight: 600; }
+.case-steps { display: grid; gap: 8px; max-width: 68ch; padding-left: 24px; list-style: decimal; color: var(--muted); font-size: 16px; }
+.case code { font-family: var(--font-mono); font-size: 0.86em; padding: 1px 6px; border-radius: 5px; border: 1px solid var(--border-card); background: var(--surface); color: var(--text); overflow-wrap: anywhere; }
+.case-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
 @media (min-width: 1500px) {
   .container { max-width: 1160px; }
 }

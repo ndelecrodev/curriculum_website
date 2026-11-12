@@ -47,13 +47,31 @@
     burger.setAttribute("aria-label", t(burger.getAttribute("aria-expanded") === "true" ? "menu.close" : "menu.open"));
   }
 
+  function definirTexto(el, texto) {
+    if (texto.indexOf("`") === -1) {
+      el.textContent = texto;
+      return;
+    }
+    el.textContent = "";
+    texto.split("`").forEach(function (parte, i) {
+      if (!parte) return;
+      if (i % 2) {
+        var code = document.createElement("code");
+        code.textContent = parte;
+        el.appendChild(code);
+      } else {
+        el.appendChild(document.createTextNode(parte));
+      }
+    });
+  }
+
   function aplicarIdioma(lang, gravar) {
     if (!idiomaValido(lang) || !dicionarios[lang]) lang = "pt";
     idiomaAtual = lang;
     root.setAttribute("lang", lang === "en" ? "en" : "pt-BR");
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      el.textContent = t(el.getAttribute("data-i18n"));
+      definirTexto(el, t(el.getAttribute("data-i18n")));
     });
     document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
       el.getAttribute("data-i18n-attr").split(",").forEach(function (par) {
@@ -62,8 +80,8 @@
       });
     });
 
-    document.title = t("meta.title");
-    if (metaDescricao) metaDescricao.setAttribute("content", t("meta.description"));
+    document.title = t(root.getAttribute("data-title-key") || "meta.title");
+    if (metaDescricao) metaDescricao.setAttribute("content", t(root.getAttribute("data-desc-key") || "meta.description"));
     rotuloMenu();
 
     botoesIdioma.forEach(function (b) {
@@ -212,7 +230,8 @@
   var links = document.querySelectorAll(".nav-links a");
   var secoes = [];
   links.forEach(function (link) {
-    var alvo = document.querySelector(link.getAttribute("href"));
+    var destino = link.getAttribute("href");
+    var alvo = destino.charAt(0) === "#" ? document.querySelector(destino) : null;
     if (alvo) secoes.push({ link: link, alvo: alvo });
   });
   if ("IntersectionObserver" in window && secoes.length) {
