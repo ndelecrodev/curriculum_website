@@ -1,21 +1,13 @@
-/* ==========================================================
-   Nicolas Zampieri · style.css
-   Direção: currículo editorial. Coluna de rótulos à esquerda, conteúdo à
-   direita, divisórias finas, cor de destaque só em links e foco.
-   Tema escuro é o padrão; o claro entra por html[data-mode="light"].
-   ========================================================== */
-
-/* ---------- 1. Tokens ---------- */
 :root {
   --bg: #0a0a0c;
   --surface: #111115;
   --border: #212128;
-  --border-strong: #55555f;   /* contornos de botões, chips e etiquetas */
-  --border-card: #2a2a33;     /* contorno dos cartões */
+  --border-strong: #55555f;
+  --border-card: #2a2a33;
   --card-shadow: none;
   --text: #ededf0;
   --muted: #8d8d99;
-  --accent: #6aa5ff;          /* links e foco */
+  --accent: #6aa5ff;
   --accent-solid: #3b82f6;
   --glass: rgba(10, 10, 12, 0.72);
   --ok: #34d399;
@@ -49,7 +41,6 @@ html[data-mode="light"] {
   color-scheme: light;
 }
 
-/* ---------- 2. Base ---------- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 24px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
@@ -70,10 +61,8 @@ h1, h2, h3 { text-wrap: balance; }
 .skip { position: absolute; left: 12px; top: -48px; z-index: 100; background: var(--text); color: var(--bg); padding: 8px 14px; border-radius: 6px; text-decoration: none; }
 .skip:focus { top: 12px; }
 
-/* Ícones escuros ganham tom claro no tema escuro para não sumirem */
 html:not([data-mode="light"]) img.inv { filter: brightness(0) invert(0.9); }
 
-/* ---------- 3. Navegação (vidro fosco) ---------- */
 .nav {
   position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--nav-h);
   background: var(--glass);
@@ -98,7 +87,6 @@ html[data-mode="light"] .i-moon { display: block; }
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-/* ---------- 4. Botões ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 10px 18px; border-radius: 8px; font: 500 14.5px var(--font-body);
@@ -110,9 +98,7 @@ html[data-mode="light"] .i-moon { display: block; }
 .btn.ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
 .btn.ghost:hover { border-color: var(--muted); }
 
-/* ---------- 5. Apresentação ---------- */
 .hero { position: relative; overflow: hidden; padding: calc(var(--nav-h) + 88px) 0 80px; }
-/* Grade sutil ao fundo, esmaecida nas bordas, e um brilho azul no canto */
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: 0;
   background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -132,33 +118,27 @@ html[data-mode="light"] .i-moon { display: block; }
 .socials a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 14.5px; transition: color 0.15s; }
 .socials a:hover { color: var(--text); }
 
-/* Ficha de dados */
 .facts { border-top: 1px solid var(--border); }
 .facts > div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; }
 .facts dt { color: var(--muted); }
 .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); margin-right: 9px; vertical-align: 1px; }
 
-/* Linhas de ícones (hero e projetos) */
 .icon-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .icon-row li { display: grid; place-items: center; }
 .icon-row img { opacity: 0.92; transition: opacity 0.15s, transform 0.15s; }
 .icon-row img:hover { opacity: 1; transform: translateY(-2px); }
 .icon-row .txt { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 
-/* ---------- 6. Seções ---------- */
 .section { padding: 72px 0; border-top: 1px solid var(--border); }
 .section-grid { display: grid; grid-template-columns: var(--col-label) 1fr; gap: 24px 40px; align-items: start; }
 .section-label { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0; position: sticky; top: calc(var(--nav-h) + 24px); }
 
-/* Entrada ao rolar: começa legível e termina em 100% */
 .reveal { opacity: 0.25; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
-/* Sobre */
 .prose { display: grid; gap: 18px; max-width: 66ch; color: var(--muted); }
 .prose-lead { color: var(--text); font-size: 19px; line-height: 1.55; letter-spacing: -0.01em; }
 
-/* Habilidades */
 .skills { display: grid; }
 .skill-row { display: grid; grid-template-columns: 170px 1fr; gap: 12px 24px; padding: 14px 0; }
 .skill-row:first-child { padding-top: 0; }
@@ -168,7 +148,6 @@ html[data-mode="light"] .i-moon { display: block; }
 .skill-list li:hover { border-color: var(--accent-solid); background: var(--accent-soft); color: var(--accent); }
 .skill-list img { flex: none; width: 16px; height: 16px; }
 
-/* Experiência */
 .entries { position: relative; display: grid; gap: 36px; padding-left: 32px; }
 .entries::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--border-card); }
 .entry { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 16px; }
@@ -180,7 +159,6 @@ html[data-mode="light"] .i-moon { display: block; }
 .entry-body li { position: relative; padding-left: 16px; color: var(--muted); font-size: 15.5px; }
 .entry-body li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 6px; height: 1px; background: var(--muted); }
 
-/* Projetos */
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
 .chip { font: 500 13.5px var(--font-body); padding: 6px 13px; border-radius: 999px; cursor: pointer; border: 1px solid var(--border-strong); background: transparent; color: var(--muted); transition: color 0.15s, border-color 0.15s, background 0.15s; }
 .chip:hover { color: var(--text); border-color: var(--muted); }
@@ -200,26 +178,22 @@ html[data-mode="light"] .i-moon { display: block; }
 .proj-links a { color: var(--accent); text-decoration: none; }
 .proj-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* Formação */
 .rows { display: grid; }
 .rows li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
 .rows li:first-child { padding-top: 0; }
 .rows-main { font-weight: 500; }
 .rows-sub { color: var(--muted); font-size: 15px; text-align: right; }
 
-/* Contato */
 .contact { display: grid; gap: 14px; justify-items: start; padding: 32px; border: 1px solid var(--border-card); border-radius: 16px; box-shadow: var(--card-shadow); background: linear-gradient(135deg, var(--accent-soft), transparent 70%), var(--surface); }
 .contact-text { color: var(--muted); font-size: 17px; }
 .email { font-size: clamp(16px, 3vw, 24px); letter-spacing: -0.01em; overflow-wrap: anywhere; max-width: 100%; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
 
-/* Rodapé e toast */
 .footer { border-top: 1px solid var(--border); padding: 24px 0 36px; color: var(--muted); font-size: 13.5px; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
 .toast { position: fixed; left: 50%; bottom: 28px; z-index: 80; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-/* ---------- 7. Responsivo ---------- */
 @media (min-width: 1500px) {
   .container { max-width: 1160px; }
 }
@@ -285,9 +259,6 @@ html[data-mode="light"] .i-moon { display: block; }
   .reveal { opacity: 1; transform: none; }
 }
 
-/* ---------- 8. Impressão ("Baixar CV") ----------
-   Currículo tradicional: fundo branco, texto preto, sem menu, botões, filtros
-   ou animações, com todos os projetos visíveis e o e-mail em texto. */
 @media print {
   @page { margin: 14mm; }
   html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; line-height: 1.45; }

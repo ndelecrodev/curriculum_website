@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-  Portfólio de Nicolas Delecrode Zampieri
-  Arquivos: index.html (estrutura), style.css (visual), script.js (comportamento).
--->
 <html lang="pt-BR" data-mode="dark">
 <head>
   <meta charset="utf-8">
@@ -10,12 +6,11 @@
   <title>Nicolas Zampieri</title>
   <meta name="description" content="Nicolas Delecrode Zampieri, desenvolvedor backend. Python, FastAPI, Django, Java e Spring Boot. APIs e integrações entre sistemas.">
 
-  <!-- Aplica o tema salvo antes da primeira pintura, para não piscar -->
   <script>
     try {
       var saved = localStorage.getItem("tema");
       if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-mode", saved);
-    } catch (e) { /* sem localStorage: segue no tema escuro */ }
+    } catch (e) { }
   </script>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -29,7 +24,6 @@
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- ============ NAVEGAÇÃO FIXA ============ -->
   <header class="nav" id="topo">
     <div class="container nav-inner">
       <a class="brand" href="#topo"><span class="brand-mark mono" aria-hidden="true">NZ</span><span class="brand-name">Nicolas Zampieri</span></a>
@@ -57,7 +51,6 @@
 
   <main id="conteudo">
 
-    <!-- ============ APRESENTAÇÃO ============ -->
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="container hero-grid">
         <div class="hero-text">
@@ -68,7 +61,6 @@
 
           <div class="hero-actions">
             <a class="btn primary" href="#projetos">Ver Projetos</a>
-            <!-- "Baixar CV" aciona window.print(); o CSS de impressão monta o currículo -->
             <button class="btn ghost" id="baixar-cv" type="button">Baixar CV</button>
           </div>
 
@@ -85,7 +77,6 @@
           </ul>
         </div>
 
-        <!-- Ficha com dados objetivos -->
         <dl class="facts" aria-label="Resumo">
           <div><dt>Local</dt><dd>São Paulo, SP</dd></div>
           <div><dt>Foco</dt><dd>Backend, APIs e integrações</dd></div>
@@ -111,7 +102,6 @@
       </div>
     </section>
 
-    <!-- ============ SOBRE ============ -->
     <section class="section reveal" id="sobre" aria-labelledby="sobre-titulo">
       <div class="container section-grid">
         <h2 id="sobre-titulo" class="section-label">Sobre</h2>
@@ -123,7 +113,6 @@
       </div>
     </section>
 
-    <!-- ============ HABILIDADES ============ -->
     <section class="section reveal" id="habilidades" aria-labelledby="hab-titulo">
       <div class="container section-grid">
         <h2 id="hab-titulo" class="section-label">Habilidades</h2>
@@ -199,7 +188,6 @@
       </div>
     </section>
 
-    <!-- ============ EXPERIÊNCIA ============ -->
     <section class="section reveal" id="experiencia" aria-labelledby="exp-titulo">
       <div class="container section-grid">
         <h2 id="exp-titulo" class="section-label">Experiência</h2>
@@ -230,12 +218,10 @@
       </div>
     </section>
 
-    <!-- ============ PROJETOS ============ -->
     <section class="section reveal" id="projetos" aria-labelledby="proj-titulo">
       <div class="container section-grid">
         <h2 id="proj-titulo" class="section-label">Projetos</h2>
         <div>
-          <!-- Filtros: cada botão aponta para uma categoria em data-cat nas linhas abaixo -->
           <div class="filters" role="group" aria-label="Filtrar projetos">
             <button type="button" class="chip is-active" data-filter="todos" aria-pressed="true">Todos</button>
             <button type="button" class="chip" data-filter="python" aria-pressed="false">Python</button>
@@ -322,7 +308,6 @@
       </div>
     </section>
 
-    <!-- ============ FORMAÇÃO ============ -->
     <section class="section reveal" id="formacao" aria-labelledby="form-titulo">
       <div class="container section-grid">
         <h2 id="form-titulo" class="section-label">Formação</h2>
@@ -335,7 +320,6 @@
       </div>
     </section>
 
-    <!-- ============ CONTATO ============ -->
     <section class="section reveal" id="contato" aria-labelledby="cont-titulo">
       <div class="container section-grid">
         <h2 id="cont-titulo" class="section-label">Contato</h2>
@@ -359,7 +343,6 @@
     </div>
   </footer>
 
-  <!-- Notificação (toast) ao copiar o e-mail -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>

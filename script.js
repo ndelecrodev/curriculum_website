@@ -1,28 +1,15 @@
-/* ==========================================================
-   Portfólio de Nicolas Zampieri · script.js (JavaScript puro)
-   Funcionalidades:
-   1. Alternador de tema (salvo no localStorage)
-   2. Menu mobile (hambúrguer)
-   3. Animações de scroll com IntersectionObserver
-   4. Filtro de projetos
-   5. Botão "Copiar E-mail" com toast
-   6. "Baixar CV" via impressão
-   7. Destaque do link da seção atual no menu
-   ========================================================== */
 (function () {
   "use strict";
 
   var root = document.documentElement;
 
-  /* ---------- Utilitário: localStorage que nunca derruba a página ---------- */
   function lerArmazenado(chave) {
     try { return localStorage.getItem(chave); } catch (e) { return null; }
   }
   function gravarArmazenado(chave, valor) {
-    try { localStorage.setItem(chave, valor); } catch (e) { /* sem armazenamento: ignora */ }
+    try { localStorage.setItem(chave, valor); } catch (e) { }
   }
 
-  /* ---------- Toast ---------- */
   var toast = document.getElementById("toast");
   var toastTimer;
   function mostrarToast(mensagem) {
@@ -33,7 +20,6 @@
     toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 2400);
   }
 
-  /* ---------- 1. Tema claro/escuro ---------- */
   var botaoTema = document.getElementById("tema");
   function aplicarTema(modo) {
     root.setAttribute("data-mode", modo);
@@ -46,7 +32,6 @@
     });
   }
 
-  /* ---------- 2. Menu mobile ---------- */
   var burger = document.getElementById("burger");
   var menu = document.getElementById("menu");
   function fecharMenu() {
@@ -61,34 +46,29 @@
       burger.setAttribute("aria-expanded", String(aberto));
       burger.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
     });
-    // Fecha ao escolher uma seção
     menu.addEventListener("click", function (e) {
       if (e.target.closest("a")) fecharMenu();
     });
-    // Fecha com Esc
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") fecharMenu();
     });
   }
 
-  /* ---------- 3. Animações de scroll ---------- */
   var revelaveis = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var observador = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (entrada) {
         if (entrada.isIntersecting) {
           entrada.target.classList.add("in");
-          observador.unobserve(entrada.target); // anima só uma vez
+          observador.unobserve(entrada.target);
         }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     revelaveis.forEach(function (el) { observador.observe(el); });
   } else {
-    // Navegadores sem suporte: mostra tudo
     revelaveis.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- 4. Filtro de projetos ---------- */
   var botoesFiltro = document.querySelectorAll(".filters .chip");
   var cartoes = document.querySelectorAll("#lista-projetos .proj");
 
@@ -99,12 +79,10 @@
 
       if (visivel) {
         cartao.hidden = false;
-        // força o navegador a registrar o estado oculto antes de animar a volta
         void cartao.offsetWidth;
         cartao.classList.remove("is-out");
       } else {
         cartao.classList.add("is-out");
-        // depois da transição, remove do fluxo
         setTimeout(function () {
           if (cartao.classList.contains("is-out")) cartao.hidden = true;
         }, 260);
@@ -123,10 +101,8 @@
     });
   });
 
-  /* ---------- 5. Copiar e-mail ---------- */
   var botaoEmail = document.getElementById("copiar-email");
 
-  // Plano B para ambientes em que a API de área de transferência é bloqueada
   function copiarComFallback(texto) {
     var campo = document.createElement("textarea");
     campo.value = texto;
@@ -157,7 +133,6 @@
     });
   }
 
-  /* ---------- 6. Baixar CV (impressão / salvar como PDF) ---------- */
   var botaoCV = document.getElementById("baixar-cv");
   if (botaoCV) {
     botaoCV.addEventListener("click", function () {
@@ -169,7 +144,6 @@
     });
   }
 
-  /* ---------- 7. Link da seção atual no menu ---------- */
   var links = document.querySelectorAll(".nav-links a");
   var secoes = [];
   links.forEach(function (link) {
@@ -188,7 +162,6 @@
     secoes.forEach(function (s) { obsSecao.observe(s.alvo); });
   }
 
-  /* ---------- Ano do rodapé ---------- */
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();
