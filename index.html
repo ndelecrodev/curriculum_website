@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--
+  Portfólio de Nicolas Delecrode Zampieri
+  Arquivos: index.html (estrutura), style.css (visual), script.js (comportamento).
+  Itens marcados com "TROCAR" são placeholders para preencher.
+-->
+<html lang="pt-BR" data-mode="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nicolas Zampieri</title>
+  <meta name="description" content="Nicolas Delecrode Zampieri, desenvolvedor backend. Python, FastAPI, Django, Java e Spring Boot. APIs e integrações entre sistemas.">
+
+  <!-- Aplica o tema salvo antes da primeira pintura, para não piscar -->
+  <script>
+    try {
+      var saved = localStorage.getItem("tema");
+      if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-mode", saved);
+    } catch (e) { /* sem localStorage: segue no tema escuro */ }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ NAVEGAÇÃO FIXA ============ -->
+  <header class="nav" id="topo">
+    <div class="container nav-inner">
+      <a class="brand" href="#topo"><span class="brand-mark mono" aria-hidden="true">NZ</span><span class="brand-name">Nicolas Zampieri</span></a>
+
+      <nav class="nav-links" id="menu" aria-label="Seções">
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="tema" type="button" aria-label="Alternar entre tema escuro e claro">
+          <svg class="i-sun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ APRESENTAÇÃO ============ -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow mono">Desenvolvedor de software · São Paulo, SP</p>
+          <h1 id="hero-titulo">Nicolas Delecrode <span class="grad">Zampieri</span></h1>
+          <p class="role mono">Python · FastAPI · Django · Java</p>
+          <p class="lead">Desenvolvo APIs e integrações entre sistemas em Python e Java, com testes e CI desde o primeiro commit.</p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projetos">Ver Projetos</a>
+            <!-- "Baixar CV" aciona window.print(); o CSS de impressão monta o currículo -->
+            <button class="btn ghost" id="baixar-cv" type="button">Baixar CV</button>
+          </div>
+
+          <ul class="socials" aria-label="Links">
+            <li><a href="https://github.com/ndelecrodev" rel="noopener">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub</a></li>
+            <!-- TROCAR: endereço do seu LinkedIn -->
+            <li><a href="https://www.linkedin.com/in/seu-usuario" rel="noopener">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.5H3.6V9h3.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+              LinkedIn</a></li>
+            <li><a href="#contato">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              E-mail</a></li>
+          </ul>
+        </div>
+
+        <!-- Ficha com dados objetivos -->
+        <dl class="facts" aria-label="Resumo">
+          <div><dt>Local</dt><dd>São Paulo, SP</dd></div>
+          <div><dt>Foco</dt><dd>Backend, APIs e integrações</dd></div>
+          <div><dt>Linguagens</dt><dd>Python, Java, SQL</dd></div>
+          <div><dt>Frameworks</dt><dd>FastAPI, Django, Spring Boot</dd></div>
+          <div class="facts-stack">
+            <dt>Stack</dt>
+            <dd>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/python.svg" alt="Python" title="Python" width="26" height="26"></li>
+                <li><img src="assets/icons/fastapi.svg" alt="FastAPI" title="FastAPI" width="26" height="26"></li>
+                <li><img class="inv" src="assets/icons/django.svg" alt="Django" title="Django" width="26" height="26"></li>
+                <li><img src="assets/icons/java.svg" alt="Java" title="Java" width="26" height="26"></li>
+                <li><img src="assets/icons/spring.svg" alt="Spring Boot" title="Spring Boot" width="26" height="26"></li>
+                <li><img src="assets/icons/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="26" height="26"></li>
+                <li><img src="assets/icons/githubactions.svg" alt="GitHub Actions" title="GitHub Actions" width="26" height="26"></li>
+                <li><img src="assets/icons/git.svg" alt="Git" title="Git" width="26" height="26"></li>
+              </ul>
+            </dd>
+          </div>
+          <div><dt>Status</dt><dd><span class="status-dot" aria-hidden="true"></span>Aberto a oportunidades</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section reveal" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container section-grid">
+        <h2 id="sobre-titulo" class="section-label">Sobre</h2>
+        <div class="prose">
+          <p class="prose-lead">Sou desenvolvedor backend e trabalho principalmente com Python (FastAPI, Django) e Java (Spring Boot). Boa parte do que faço é integrar sistemas: consumir APIs REST, normalizar os dados e gravar em Postgres, com testes e CI rodando desde o início.</p>
+          <p>No Task Time Sync, mantenho um pipeline que roda todos os dias e consolida Jira e Clockify em Excel e Postgres. As etapas são independentes: se o Jira sai do ar, a coleta do Clockify continua e o erro vai para o Sentry.</p>
+          <p>O Quimia é um projeto em equipe da ExpoTech 2026, com painel administrativo em Java e site institucional. Estou aberto a conversas e oportunidades em diferentes áreas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section class="section reveal" id="habilidades" aria-labelledby="hab-titulo">
+      <div class="container section-grid">
+        <h2 id="hab-titulo" class="section-label">Habilidades</h2>
+        <div class="skills">
+          <div class="skill-row">
+            <h3>Linguagens</h3>
+            <ul class="skill-list">
+              <li><img src="assets/icons/python.svg" alt="" width="18" height="18">Python</li>
+              <li><img src="assets/icons/java.svg" alt="" width="18" height="18">Java</li>
+              <li>SQL</li>
+              <li><img src="assets/icons/javascript.svg" alt="" width="18" height="18">JavaScript</li>
+              <li><img src="assets/icons/html5.svg" alt="" width="18" height="18">HTML</li>
+              <li><img src="assets/icons/css3.svg" alt="" width="18" height="18">CSS</li>
+            </ul>
+          </div>
+          <div class="skill-row">
+            <h3>Back-end</h3>
+            <ul class="skill-list">
+              <li><img src="assets/icons/fastapi.svg" alt="" width="18" height="18">FastAPI</li>
+              <li><img class="inv" src="assets/icons/django.svg" alt="" width="18" height="18">Django</li>
+              <li><img src="assets/icons/spring.svg" alt="" width="18" height="18">Spring Boot</li>
+              <li><img src="assets/icons/spring.svg" alt="" width="18" height="18">Spring Security</li>
+              <li>Pydantic</li>
+              <li><img src="assets/icons/sqlalchemy.svg" alt="" width="18" height="18">SQLAlchemy</li>
+              <li>Requests</li>
+            </ul>
+          </div>
+          <div class="skill-row">
+            <h3>Dados e integrações</h3>
+            <ul class="skill-list">
+              <li>APIs REST</li>
+              <li>Webhooks</li>
+              <li><img src="assets/icons/postgresql.svg" alt="" width="18" height="18">PostgreSQL</li>
+              <li>Supabase</li>
+              <li>Backblaze B2</li>
+              <li>ETL</li>
+              <li>Power Automate</li>
+              <li>Excel</li>
+            </ul>
+          </div>
+          <div class="skill-row">
+            <h3>Qualidade e entrega</h3>
+            <ul class="skill-list">
+              <li><img class="inv" src="assets/icons/github.svg" alt="" width="18" height="18">Git e GitHub</li>
+              <li><img src="assets/icons/githubactions.svg" alt="" width="18" height="18">GitHub Actions</li>
+              <li><img src="assets/icons/pytest.svg" alt="" width="18" height="18">pytest</li>
+              <li><img src="assets/icons/junit.svg" alt="" width="18" height="18">JUnit 5</li>
+              <li>black</li>
+              <li>pylint</li>
+              <li><img src="assets/icons/poetry.svg" alt="" width="18" height="18">Poetry</li>
+              <li><img src="assets/icons/codecov.svg" alt="" width="18" height="18">Codecov</li>
+              <li><img src="assets/icons/cloudflare.svg" alt="" width="18" height="18">Cloudflare Pages</li>
+            </ul>
+          </div>
+          <div class="skill-row">
+            <h3>Observabilidade</h3>
+            <ul class="skill-list">
+              <li><img class="inv" src="assets/icons/sentry.svg" alt="" width="18" height="18">Sentry</li>
+              <li>Better Stack</li>
+            </ul>
+          </div>
+          <div class="skill-row">
+            <h3>Trabalho em equipe</h3>
+            <ul class="skill-list">
+              <li>Comunicação</li>
+              <li>Autonomia</li>
+              <li>Abertura a feedback</li>
+              <li>Atenção a detalhes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIÊNCIA ============ -->
+    <section class="section reveal" id="experiencia" aria-labelledby="exp-titulo">
+      <div class="container section-grid">
+        <h2 id="exp-titulo" class="section-label">Experiência</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-when">2026</p>
+            <div class="entry-body">
+              <h3>Quimia <span class="entry-org">· ExpoTech 2026, projeto em equipe</span></h3>
+              <ul>
+                <li>Painel administrativo em Java e Spring Boot, com auditoria de alterações, restauração de exclusões e mais de 160 testes automatizados.</li>
+                <li>Site institucional responsivo e acessível, publicado em quimia.tech.</li>
+                <li>Dashboard de tarefas e horas com login e controle de acesso por Row Level Security.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-when">2026</p>
+            <div class="entry-body">
+              <h3>Task Time Sync <span class="entry-org">· projeto próprio</span></h3>
+              <ul>
+                <li>Pipeline em Python com arquitetura em camadas, modelos Pydantic e upserts no Postgres.</li>
+                <li>Etapas isoladas entre si, com falhas enviadas ao Sentry e heartbeat no Better Stack.</li>
+                <li>CI com pylint, black e pytest, cobertura no Codecov e execução diária agendada no GitHub Actions.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROJETOS ============ -->
+    <section class="section reveal" id="projetos" aria-labelledby="proj-titulo">
+      <div class="container section-grid">
+        <h2 id="proj-titulo" class="section-label">Projetos</h2>
+        <div>
+          <!-- Filtros: cada botão aponta para uma categoria em data-cat nas linhas abaixo -->
+          <div class="filters" role="group" aria-label="Filtrar projetos">
+            <button type="button" class="chip is-active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="chip" data-filter="python" aria-pressed="false">Python</button>
+            <button type="button" class="chip" data-filter="java" aria-pressed="false">Java</button>
+            <button type="button" class="chip" data-filter="frontend" aria-pressed="false">Front-End</button>
+            <button type="button" class="chip" data-filter="integracoes" aria-pressed="false">Integrações</button>
+          </div>
+
+          <div class="projects" id="lista-projetos">
+            <article class="proj" data-cat="python integracoes">
+              <div class="proj-main">
+                <h3><a href="https://github.com/ndelecrodev/task-time-sync" rel="noopener">Task Time Sync</a></h3>
+                <p>Pipeline que consolida tarefas do Jira e horas do Clockify em Excel e Postgres, com alertas de prazo no Microsoft Teams. Execução diária por GitHub Actions.</p>
+              </div>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/python.svg" alt="Python" title="Python" width="22" height="22"></li>
+                <li><img src="assets/icons/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="22" height="22"></li>
+                <li><img src="assets/icons/sqlalchemy.svg" alt="SQLAlchemy" title="SQLAlchemy" width="22" height="22"></li>
+                <li><img src="assets/icons/pytest.svg" alt="pytest" title="pytest" width="22" height="22"></li>
+                <li><img src="assets/icons/githubactions.svg" alt="GitHub Actions" title="GitHub Actions" width="22" height="22"></li>
+              </ul>
+              <div class="proj-links"><a href="https://github.com/ndelecrodev/task-time-sync" rel="noopener">GitHub</a></div>
+            </article>
+
+            <article class="proj" data-cat="java">
+              <div class="proj-main">
+                <h3><a href="https://github.com/Quimia-br/quimia-web-crud" rel="noopener">Quimia, painel administrativo</a></h3>
+                <p>CRUD com auditoria, restauração de exclusões, bloqueio após tentativas de login erradas e mais de 160 testes com JUnit 5.</p>
+              </div>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/java.svg" alt="Java" title="Java" width="22" height="22"></li>
+                <li><img src="assets/icons/spring.svg" alt="Spring Boot" title="Spring Boot" width="22" height="22"></li>
+                <li><img src="assets/icons/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="22" height="22"></li>
+                <li><img src="assets/icons/junit.svg" alt="JUnit" title="JUnit" width="22" height="22"></li>
+              </ul>
+              <div class="proj-links"><a href="https://github.com/Quimia-br/quimia-web-crud" rel="noopener">GitHub</a></div>
+            </article>
+
+            <article class="proj" data-cat="frontend integracoes">
+              <div class="proj-main">
+                <h3><a href="https://github.com/ndelecrodev/quimia-dashboard" rel="noopener">Quimia Dashboard</a></h3>
+                <p>Dashboard estático com login e Row Level Security para acompanhar tarefas e horas por colaborador. Exporta CSV e XLSX.</p>
+              </div>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/javascript.svg" alt="JavaScript" title="JavaScript" width="22" height="22"></li>
+                <li><img src="assets/icons/html5.svg" alt="HTML" title="HTML" width="22" height="22"></li>
+                <li><img src="assets/icons/css3.svg" alt="CSS" title="CSS" width="22" height="22"></li>
+                <li><img src="assets/icons/chartjs.svg" alt="Chart.js" title="Chart.js" width="22" height="22"></li>
+                <li><img src="assets/icons/cloudflare.svg" alt="Cloudflare Pages" title="Cloudflare Pages" width="22" height="22"></li>
+              </ul>
+              <div class="proj-links"><a href="https://github.com/ndelecrodev/quimia-dashboard" rel="noopener">GitHub</a></div>
+            </article>
+
+            <article class="proj" data-cat="frontend">
+              <div class="proj-main">
+                <h3><a href="https://quimia.tech" rel="noopener">Quimia, site institucional</a></h3>
+                <p>Site do app que evita misturas perigosas de produtos de limpeza. Layout responsivo de 360 a 1440 px e atributos de acessibilidade.</p>
+              </div>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/html5.svg" alt="HTML" title="HTML" width="22" height="22"></li>
+                <li><img src="assets/icons/css3.svg" alt="CSS" title="CSS" width="22" height="22"></li>
+                <li><img src="assets/icons/javascript.svg" alt="JavaScript" title="JavaScript" width="22" height="22"></li>
+                <li><img class="inv" src="assets/icons/github.svg" alt="GitHub Pages" title="GitHub Pages" width="22" height="22"></li>
+              </ul>
+              <div class="proj-links">
+                <a href="https://github.com/Quimia-br/quimia-landingpage" rel="noopener">GitHub</a>
+                <a href="https://quimia.tech" rel="noopener">Demo</a>
+              </div>
+            </article>
+
+            <article class="proj" data-cat="python">
+              <div class="proj-main">
+                <h3><a href="https://github.com/ndelecrodev/task-time-sync-docs" rel="noopener">Task Time Sync, documentação</a></h3>
+                <p>Documentação bilíngue do pipeline e do dashboard, com arquitetura, modelo de dados e o motivo das decisões de design.</p>
+              </div>
+              <ul class="icon-row" aria-label="Tecnologias">
+                <li><img src="assets/icons/python.svg" alt="Python" title="Python" width="22" height="22"></li>
+                <li class="txt">MkDocs</li>
+              </ul>
+              <div class="proj-links"><a href="https://github.com/ndelecrodev/task-time-sync-docs" rel="noopener">GitHub</a></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMAÇÃO ============ -->
+    <section class="section reveal" id="formacao" aria-labelledby="form-titulo">
+      <div class="container section-grid">
+        <h2 id="form-titulo" class="section-label">Formação</h2>
+        <ul class="rows">
+          <li><span class="rows-main">Ensino Médio</span><span class="rows-sub">Instituto J&amp;F, São Paulo, SP</span></li>
+          <li><span class="rows-main">GitHub Foundations</span><span class="rows-sub">DataCamp, 2026 (em andamento)</span></li>
+          <li><span class="rows-main">Python</span><span class="rows-sub">Instituto J&amp;F, 2026</span></li>
+          <li><span class="rows-main">HTML e CSS</span><span class="rows-sub">IFFRS, 2026</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section reveal" id="contato" aria-labelledby="cont-titulo">
+      <div class="container section-grid">
+        <h2 id="cont-titulo" class="section-label">Contato</h2>
+        <div class="contact">
+          <p class="contact-text">Aberto a conversas e oportunidades em diferentes áreas.</p>
+          <!-- TROCAR: o mesmo e-mail em data-email e no texto -->
+          <p class="email mono">nicolas17delecrodepf@gmail.com</p>
+          <div class="contact-actions">
+            <button class="btn primary" id="copiar-email" type="button" data-email="nicolas17delecrodepf@gmail.com">Copiar E-mail</button>
+            <a class="btn ghost" href="https://github.com/ndelecrodev" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/seu-usuario" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="ano">2026</span> Nicolas Delecrode Zampieri</span>
+      <span>São Paulo, SP</span>
+    </div>
+  </footer>
+
+  <!-- Notificação (toast) ao copiar o e-mail -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
