@@ -254,6 +254,47 @@
 
   aplicarIdioma(idiomaInicial(), false);
 
+  var lightbox = null;
+  var lightboxImg = null;
+  var lightboxOrigem = null;
+
+  function criarLightbox() {
+    lightbox = document.createElement("dialog");
+    lightbox.className = "lightbox";
+    var fechar = document.createElement("button");
+    fechar.type = "button";
+    fechar.className = "lightbox-close";
+    fechar.setAttribute("aria-label", t("lightbox.close"));
+    fechar.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+    lightboxImg = document.createElement("img");
+    lightbox.appendChild(fechar);
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
+
+    fechar.addEventListener("click", function () { lightbox.close(); });
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("close", function () {
+      if (lightboxOrigem && document.contains(lightboxOrigem)) lightboxOrigem.focus();
+      lightboxOrigem = null;
+    });
+  }
+
+  document.querySelectorAll(".case-zoom").forEach(function (botao) {
+    botao.addEventListener("click", function () {
+      var miniatura = botao.querySelector("img");
+      if (!miniatura || typeof HTMLDialogElement === "undefined") return;
+      if (!lightbox) criarLightbox();
+      lightboxOrigem = botao;
+      lightboxImg.src = miniatura.currentSrc || miniatura.src;
+      lightboxImg.alt = miniatura.alt;
+      lightbox.querySelector(".lightbox-close").setAttribute("aria-label", t("lightbox.close"));
+      lightbox.setAttribute("aria-label", miniatura.alt);
+      lightbox.showModal();
+    });
+  });
+
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();

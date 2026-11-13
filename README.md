@@ -124,7 +124,7 @@ Depois abra <http://localhost:8000> (ou o endereço que o servidor mostrar). Com
 ├── script.js         Comportamento: tema, menu, filtro, copiar e-mail
 ├── i18n.js           Textos em português e inglês
 ├── casos/            Estudos de caso (uma página por projeto)
-│   └── img/          Prints opcionais dos projetos
+│   └── img/          Prints dos projetos
 ├── assets/diagramas/ Diagramas dos estudos de caso (PT e EN)
 ├── robots.txt        Regras para buscadores
 ├── sitemap.xml       Páginas do site

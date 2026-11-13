@@ -223,6 +223,17 @@ html[data-mode="light"] .i-moon { display: block; }
 .case-fig { margin: 28px 0 0; }
 .case-fig img { width: 100%; height: auto; border-radius: 14px; }
 .case-fig figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; }
+.case-zoom { display: block; width: 100%; padding: 0; border: 0; background: none; border-radius: 14px; cursor: zoom-in; }
+.case-zoom img { border: 1px solid var(--border-card); }
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; color: var(--text); }
+.lightbox::backdrop { background: rgba(0, 0, 0, 0.82); }
+.lightbox[open] { animation: lightbox-in 0.18s ease; }
+.lightbox[open]::backdrop { animation: lightbox-fade 0.18s ease; }
+.lightbox img { display: block; width: auto; height: auto; max-width: 96vw; max-height: 90vh; border-radius: 14px; }
+.lightbox-close { position: absolute; top: -14px; right: -14px; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-strong); background: var(--bg); color: var(--text); cursor: pointer; }
+.lightbox-close:hover { border-color: var(--muted); }
+@keyframes lightbox-in { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes lightbox-fade { from { opacity: 0; } to { opacity: 1; } }
 
 @media (min-width: 1500px) {
   .container { max-width: 1160px; }
@@ -292,6 +303,7 @@ html[data-mode="light"] .i-moon { display: block; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .lightbox[open], .lightbox[open]::backdrop { animation: none; }
   .reveal { opacity: 1; transform: none; }
 }
 

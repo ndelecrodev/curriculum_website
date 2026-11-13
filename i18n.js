@@ -181,7 +181,12 @@ window.I18N = {
     "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.svg",
     "img.dash.alt": "Diagrama da arquitetura do Quimia Dashboard: o pipeline task-time-sync grava no Postgres com RLS, o Supabase serve o navegador, e funções do Cloudflare Pages entregam as planilhas do Backblaze B2 ao Excel.",
     "img.adm.shot": "Tela do painel",
-    "img.dash.shot": "Tela do dashboard"
+    "img.dash.shot": "Tela do dashboard",
+    "lightbox.close": "Fechar imagem",
+    "img.adm.shotalt": "Tela inicial do painel administrativo Quimia, com atalhos de navegação, cartões de resumo de usuários, empresas, consultas e alertas, gráfico de atividade de uso e gráfico de consultas por tipo.",
+    "img.adm.zoom": "Ampliar a tela do painel",
+    "img.dash.shotalt": "Tela do Quimia Dashboard com o progresso geral do projeto, gráfico de tarefas por área, status geral das tarefas, horas por funcionário e lista de tarefas mais urgentes. Nomes e fotos de pessoas estão borrados.",
+    "img.dash.zoom": "Ampliar a tela do dashboard"
   },
   en: {
     "skip": "Skip to content",
@@ -365,6 +370,11 @@ window.I18N = {
     "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.en.svg",
     "img.dash.alt": "Diagram of the Quimia Dashboard architecture: the task-time-sync pipeline writes to Postgres with RLS, Supabase serves the browser, and Cloudflare Pages Functions deliver workbooks from Backblaze B2 to Excel.",
     "img.adm.shot": "Admin panel screen",
-    "img.dash.shot": "Dashboard screen"
+    "img.dash.shot": "Dashboard screen",
+    "lightbox.close": "Close image",
+    "img.adm.shotalt": "Home screen of the Quimia admin panel, with navigation shortcuts, summary cards for users, companies, queries and alerts, a usage activity chart and a chart of queries by type.",
+    "img.adm.zoom": "Enlarge the admin panel screen",
+    "img.dash.shotalt": "Quimia Dashboard screen showing overall project progress, a chart of tasks per area, overall task status, hours per employee and a list of the most urgent tasks. People's names and photos are blurred.",
+    "img.dash.zoom": "Enlarge the dashboard screen"
   }
 };
