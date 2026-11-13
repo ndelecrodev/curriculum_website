@@ -68,6 +68,8 @@ Site publicado em **<https://ndelecrodev.github.io/curriculum_website/>**.
 |---|---|
 | **Tema escuro e claro** com botão de alternância. A escolha fica salva no navegador e é aplicada antes da primeira pintura, sem piscar | `index.html`, `script.js` |
 | **Idioma PT/EN** com botão na barra de navegação. A escolha fica salva no navegador e também vale `?lang=en` ou `?lang=pt` na URL | `i18n.js`, `script.js` |
+| **Estudos de caso** em `casos/`, no mesmo tema e nos dois idiomas | `casos/*.html` |
+| **Prévia de compartilhamento e SEO**: Open Graph, Twitter Card, canonical, JSON-LD, `robots.txt` e `sitemap.xml` | `index.html`, `assets/og-image.png` |
 | **Filtro de projetos** por categoria, com botões que informam o estado (`aria-pressed`) | `script.js` |
 | **Botão "Copiar E-mail"** com aviso na tela e plano B para navegadores que bloqueiam a área de transferência | `script.js` |
 | **Botão "Baixar CV"** que abre a impressão, e o CSS de impressão monta o currículo em papel ou PDF | `script.js`, `style.css` |
@@ -121,6 +123,10 @@ Depois abra <http://localhost:8000> (ou o endereço que o servidor mostrar). Com
 ├── style.css         Visual: temas, layout responsivo e impressão
 ├── script.js         Comportamento: tema, menu, filtro, copiar e-mail
 ├── i18n.js           Textos em português e inglês
+├── casos/            Estudos de caso (uma página por projeto)
+├── robots.txt        Regras para buscadores
+├── sitemap.xml       Páginas do site
+├── PENDENCIAS.md     Trechos dos estudos de caso que dependem de informação a confirmar
 ├── assets/
 │   └── icons/        Ícones SVG das tecnologias
 └── README.md

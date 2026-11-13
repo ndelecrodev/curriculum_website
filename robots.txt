@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ndelecrodev.github.io/curriculum_website/sitemap.xml
