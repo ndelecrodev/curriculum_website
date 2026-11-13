@@ -8,7 +8,7 @@
   --text: #ededf0;
   --muted: #8d8d99;
   --accent: #6aa5ff;
-  --accent-solid: #3b82f6;
+  --accent-solid: #2563eb;
   --glass: rgba(10, 10, 12, 0.72);
   --ok: #34d399;
   --accent-soft: rgba(59, 130, 246, 0.12);
@@ -82,7 +82,7 @@ html:not([data-mode="light"]) img.inv { filter: brightness(0) invert(0.9); }
 .lang-btn { border: 0; background: transparent; color: var(--muted); font: inherit; padding: 6px 7px; border-radius: 5px; cursor: pointer; transition: color 0.15s; }
 .lang-btn:hover { color: var(--text); }
 .lang-btn.is-active { color: var(--accent); font-weight: 500; }
-.lang-sep { color: var(--border-strong); }
+.lang-sep { color: var(--muted); }
 .i-moon { display: none; }
 html[data-mode="light"] .i-sun { display: none; }
 html[data-mode="light"] .i-moon { display: block; }
