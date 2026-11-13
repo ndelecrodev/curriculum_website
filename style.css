@@ -220,6 +220,9 @@ html[data-mode="light"] .i-moon { display: block; }
 .case-steps { display: grid; gap: 8px; max-width: 68ch; padding-left: 24px; list-style: decimal; color: var(--muted); font-size: 16px; }
 .case code { font-family: var(--font-mono); font-size: 0.86em; padding: 1px 6px; border-radius: 5px; border: 1px solid var(--border-card); background: var(--surface); color: var(--text); overflow-wrap: anywhere; }
 .case-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.case-fig { margin: 28px 0 0; }
+.case-fig img { width: 100%; height: auto; border-radius: 14px; }
+.case-fig figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; }
 
 @media (min-width: 1500px) {
   .container { max-width: 1160px; }

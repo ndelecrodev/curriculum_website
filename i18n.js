@@ -173,7 +173,13 @@ window.I18N = {
     "dash.d4t": "Duas funções do Cloudflare Pages entregam a planilha de dados (lida pelo Excel via Power Query) e o dashboard `.xlsm`. As credenciais do armazenamento nunca chegam ao navegador. Cada pessoa gera uma chave pessoal (prefixo `qxl_`), mostrada uma única vez, que revoga a anterior; as funções devolvem 401 com o cabeçalho certo só quando o Excel precisa pedir credenciais, para o navegador não abrir uma caixa de login.",
     "dash.d5h": "Registro de cadastros não autorizados",
     "dash.d5t": "por um gatilho no banco, com e-mail e horário.",
-    "pdf.href": "assets/curriculo-nicolas-zampieri.pdf"
+    "pdf.href": "assets/curriculo-nicolas-zampieri.pdf",
+    "img.tts.src": "../assets/diagramas/task-time-sync-fluxo.svg",
+    "img.tts.alt": "Diagrama do fluxo diário do Task Time Sync em 7 etapas: baixar planilha, sincronizar pessoas, coletar tarefas do Jira, coletar horas do Clockify, enviar planilha, alertas de prazo no Teams e heartbeat no Better Stack.",
+    "img.adm.src": "../assets/diagramas/quimia-admin-arquitetura.svg",
+    "img.adm.alt": "Diagrama da arquitetura do painel administrativo Quimia: navegador, Spring Security, controllers, services, repositórios e PostgreSQL, com o GitHub Actions atualizando a view materializada a cada 2 horas.",
+    "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.svg",
+    "img.dash.alt": "Diagrama da arquitetura do Quimia Dashboard: o pipeline task-time-sync grava no Postgres com RLS, o Supabase serve o navegador, e funções do Cloudflare Pages entregam as planilhas do Backblaze B2 ao Excel."
   },
   en: {
     "skip": "Skip to content",
@@ -349,6 +355,12 @@ window.I18N = {
     "dash.d4t": "Two Cloudflare Pages Functions serve the data workbook (read by Excel through Power Query) and the `.xlsm` dashboard. Storage credentials never reach the browser. Each person generates a personal key (prefix `qxl_`), shown once, which revokes the previous one; the functions return 401 with the right header only when Excel needs to prompt for credentials, so browsers never open a login dialog.",
     "dash.d5h": "Unauthorized signup log",
     "dash.d5t": "through a database trigger recording email and timestamp.",
-    "pdf.href": "assets/resume-nicolas-zampieri.pdf"
+    "pdf.href": "assets/resume-nicolas-zampieri.pdf",
+    "img.tts.src": "../assets/diagramas/task-time-sync-fluxo.en.svg",
+    "img.tts.alt": "Diagram of the Task Time Sync daily flow in 7 steps: download workbook, sync employees, collect Jira tasks, collect Clockify hours, upload workbook, deadline alerts on Teams and a Better Stack heartbeat.",
+    "img.adm.src": "../assets/diagramas/quimia-admin-arquitetura.en.svg",
+    "img.adm.alt": "Diagram of the Quimia admin panel architecture: browser, Spring Security, controllers, services, repositories and PostgreSQL, with GitHub Actions refreshing the materialized view every 2 hours.",
+    "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.en.svg",
+    "img.dash.alt": "Diagram of the Quimia Dashboard architecture: the task-time-sync pipeline writes to Postgres with RLS, Supabase serves the browser, and Cloudflare Pages Functions deliver workbooks from Backblaze B2 to Excel."
   }
 };
