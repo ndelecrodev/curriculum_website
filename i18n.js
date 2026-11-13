@@ -179,7 +179,9 @@ window.I18N = {
     "img.adm.src": "../assets/diagramas/quimia-admin-arquitetura.svg",
     "img.adm.alt": "Diagrama da arquitetura do painel administrativo Quimia: navegador, Spring Security, controllers, services, repositórios e PostgreSQL, com o GitHub Actions atualizando a view materializada a cada 2 horas.",
     "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.svg",
-    "img.dash.alt": "Diagrama da arquitetura do Quimia Dashboard: o pipeline task-time-sync grava no Postgres com RLS, o Supabase serve o navegador, e funções do Cloudflare Pages entregam as planilhas do Backblaze B2 ao Excel."
+    "img.dash.alt": "Diagrama da arquitetura do Quimia Dashboard: o pipeline task-time-sync grava no Postgres com RLS, o Supabase serve o navegador, e funções do Cloudflare Pages entregam as planilhas do Backblaze B2 ao Excel.",
+    "img.adm.shot": "Tela do painel",
+    "img.dash.shot": "Tela do dashboard"
   },
   en: {
     "skip": "Skip to content",
@@ -361,6 +363,8 @@ window.I18N = {
     "img.adm.src": "../assets/diagramas/quimia-admin-arquitetura.en.svg",
     "img.adm.alt": "Diagram of the Quimia admin panel architecture: browser, Spring Security, controllers, services, repositories and PostgreSQL, with GitHub Actions refreshing the materialized view every 2 hours.",
     "img.dash.src": "../assets/diagramas/quimia-dashboard-arquitetura.en.svg",
-    "img.dash.alt": "Diagram of the Quimia Dashboard architecture: the task-time-sync pipeline writes to Postgres with RLS, Supabase serves the browser, and Cloudflare Pages Functions deliver workbooks from Backblaze B2 to Excel."
+    "img.dash.alt": "Diagram of the Quimia Dashboard architecture: the task-time-sync pipeline writes to Postgres with RLS, Supabase serves the browser, and Cloudflare Pages Functions deliver workbooks from Backblaze B2 to Excel.",
+    "img.adm.shot": "Admin panel screen",
+    "img.dash.shot": "Dashboard screen"
   }
 };
