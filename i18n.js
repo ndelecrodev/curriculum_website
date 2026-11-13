@@ -172,7 +172,8 @@ window.I18N = {
     "dash.d4h": "Download protegido de planilhas.",
     "dash.d4t": "Duas funções do Cloudflare Pages entregam a planilha de dados (lida pelo Excel via Power Query) e o dashboard `.xlsm`. As credenciais do armazenamento nunca chegam ao navegador. Cada pessoa gera uma chave pessoal (prefixo `qxl_`), mostrada uma única vez, que revoga a anterior; as funções devolvem 401 com o cabeçalho certo só quando o Excel precisa pedir credenciais, para o navegador não abrir uma caixa de login.",
     "dash.d5h": "Registro de cadastros não autorizados",
-    "dash.d5t": "por um gatilho no banco, com e-mail e horário."
+    "dash.d5t": "por um gatilho no banco, com e-mail e horário.",
+    "pdf.href": "assets/curriculo-nicolas-zampieri.pdf"
   },
   en: {
     "skip": "Skip to content",
@@ -251,8 +252,8 @@ window.I18N = {
     "lang.group": "Language",
     "meta.title": "Nicolas Zampieri",
     "meta.description": "Nicolas Delecrode Zampieri, backend developer. Python, FastAPI, Django, Java and Spring Boot. APIs and system integrations.",
-    "hero.pdf": "Download résumé (PDF, PT)",
-    "aria.pdf": "Download Nicolas Zampieri's résumé as a PDF, in Portuguese",
+    "hero.pdf": "Download résumé (PDF)",
+    "aria.pdf": "Download Nicolas Zampieri's résumé as a PDF, in English",
     "case.back": "Back to site",
     "case.eyebrow": "Case study",
     "case.stack": "Stack",
@@ -347,6 +348,7 @@ window.I18N = {
     "dash.d4h": "Protected workbook downloads.",
     "dash.d4t": "Two Cloudflare Pages Functions serve the data workbook (read by Excel through Power Query) and the `.xlsm` dashboard. Storage credentials never reach the browser. Each person generates a personal key (prefix `qxl_`), shown once, which revokes the previous one; the functions return 401 with the right header only when Excel needs to prompt for credentials, so browsers never open a login dialog.",
     "dash.d5h": "Unauthorized signup log",
-    "dash.d5t": "through a database trigger recording email and timestamp."
+    "dash.d5t": "through a database trigger recording email and timestamp.",
+    "pdf.href": "assets/resume-nicolas-zampieri.pdf"
   }
 };
