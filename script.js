@@ -295,6 +295,17 @@
     });
   });
 
+  var marca = document.querySelector(".brand");
+  if (marca && marca.getAttribute("href") === "#topo") {
+    marca.addEventListener("click", function (e) {
+      e.preventDefault();
+      fecharMenu();
+      var reduzir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduzir ? "auto" : "smooth" });
+      if (history.replaceState) history.replaceState(null, "", window.location.pathname + window.location.search);
+    });
+  }
+
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();
