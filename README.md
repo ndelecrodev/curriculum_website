@@ -6,7 +6,7 @@
 
 **Site de currículo de Nicolas Delecrode Zampieri, desenvolvedor backend em Python e Java.**
 
-<a href="https://ndelecrodev.github.io/curriculum_website/"><img src="https://img.shields.io/badge/acessar-ndelecrodev.github.io-1f6feb?style=for-the-badge" alt="Acessar o site"></a>
+<a href="https://nicolasdelecrode.dev/"><img src="https://img.shields.io/badge/acessar-nicolasdelecrode.dev-1f6feb?style=for-the-badge" alt="Acessar o site"></a>
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
@@ -44,7 +44,7 @@ Este repositório reúne o site público do meu currículo: uma página única q
 
 É um site estático em **HTML, CSS e JavaScript puros**. Não há etapa de build, framework ou dependência para instalar. A única chamada externa são as fontes **Inter** e **JetBrains Mono**, carregadas do Google Fonts.
 
-Site publicado em **<https://ndelecrodev.github.io/curriculum_website/>**.
+Site publicado em **<https://nicolasdelecrode.dev/>**.
 
 <p align="right"><a href="#top">voltar ao topo</a></p>
 
@@ -142,10 +142,10 @@ O site é publicado direto da branch `main`, pasta raiz (`/`), sem workflow.
 
 1. Em *Settings → Pages → Build and deployment → Source*, escolher **Deploy from a branch**.
 2. Selecionar a branch **main** e a pasta **/ (root)**.
-3. Salvar e aguardar o deploy. O endereço fica em `https://ndelecrodev.github.io/curriculum_website/`.
+3. Salvar e aguardar o deploy. O domínio personalizado `nicolasdelecrode.dev` está configurado pelo arquivo `CNAME`, e o endereço antigo (`ndelecrodev.github.io/curriculum_website`) redireciona para ele.
 
 > [!NOTE]
-> Todos os caminhos de `style.css`, `script.js` e `assets/icons/` são relativos e sem barra inicial. Isso é necessário porque o site fica em uma subpasta (`/curriculum_website/`) do domínio `github.io`.
+> Todos os caminhos de `style.css`, `script.js` e `assets/icons/` são relativos e sem barra inicial. Assim o site funciona tanto na raiz do domínio próprio quanto em uma subpasta, como `/curriculum_website/` no `github.io`.
 
 <p align="right"><a href="#top">voltar ao topo</a></p>
 
